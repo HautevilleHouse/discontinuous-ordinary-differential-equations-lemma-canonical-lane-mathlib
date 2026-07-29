@@ -1,0 +1,17 @@
+import HautevilleHouse.DiscontinuousOrdinaryDifferentialEquationsLemmaCanonicalLaneLean.FilippovRegularization
+import HautevilleHouse.DiscontinuousOrdinaryDifferentialEquationsLemmaCanonicalLaneLean.DiscontinuousODESolutionStructure
+
+namespace HautevilleHouse
+namespace DiscontinuousOrdinaryDifferentialEquationsLemmaCanonicalLaneLean
+
+structure FilippovExistencePackage (F : FilippovRegularizationPackage) where
+  initialConditionAdmissible : Prop
+  localExistenceInterval : Prop
+  solutionConstructed : DiscontinuousODESolutionStructure
+  solutionSatisfiesDifferentialInclusion : Prop
+
+def FilippovExistenceClosed {F : FilippovRegularizationPackage} (E : FilippovExistencePackage F) : Prop :=
+  E.initialConditionAdmissible ∧ E.localExistenceInterval ∧ E.solutionSatisfiesDifferentialInclusion
+
+end DiscontinuousOrdinaryDifferentialEquationsLemmaCanonicalLaneLean
+end HautevilleHouse
